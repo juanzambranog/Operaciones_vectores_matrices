@@ -48,6 +48,48 @@ def adjunta_m(m1):
     adj_m=numpy.conjugate(numpy.transpose(numpy.array(m1)))
     return adj_m
 
+def producto_m(m1,m2):
+    m1=numpy.array(m1)
+    m2=numpy.array(m2)
+    produc=numpy.mult(m1,m2)
+    return produc
+
+def accion(m1,v1):
+    m1 = numpy.array(m1)
+    v1 = numpy.array(v1)
+
+    acc = numpy.dot(m1, v1)
+
+    return acc
+
+def interno(m1,m2):
+    m1 = numpy.array(m1)
+    m2 = numpy.array(m2)
+
+    inter = numpy.dot(m1, m2)
+
+    return inter
+
+def norma(v1):
+    v1 = numpy.array(v1)
+    norma = numpy.linalg.norm(v1)
+    return norma
+
+def distancia(v1,v2):
+    v1 = numpy.array(v1)
+    v2 = numpy.array(v2)
+
+    dist = numpy.linalg.norm(v1 - v2)
+    return dist
+
+
+def produc_tensor(m1,m2):
+    m1=numpy.array(m1)
+    m2=numpy.array(m2)
+    produc_t=numpy.tensordot(m1,m2,axes=0)
+    return produc_t
+
+
 
 print(suma_vectores((3,2),(1,-1)))
 print(suma_vectores((-5,-7),(0,3)))
@@ -69,3 +111,15 @@ print(traspuesta_m(([(1,2),(3,4),(5,6)])))
 print(conjugada_m(([[1+2j],[3-4j],[5+6j]])))
 
 print(adjunta_m(([[1+2j,3-4j],[5+6j,7-1j]])))
+
+print(producto_m([[1,2,3],[4,5,6]],[[7,8,9],[10,11,12]]))
+
+print(accion([[1, 2], [3, 4]],[5, 6]))
+
+print(interno([[1, 2], [3, 4]],[[5, 6],[7,8]]))
+
+print(norma([1, 2, 3]))
+
+print(distancia([1, 2, 3],[4,5,6]))
+
+print(produc_tensor([[3+2j,5-1j],[0,12]],[[1,1+3j],[10+2j,6]]))

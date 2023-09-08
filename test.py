@@ -90,3 +90,48 @@ class TestOperations(unittest.TestCase):
         adj1=mn.adjunta_m(matriz1)
         adj_test=numpy.conjugate(numpy.transpose(numpy.array(matriz1)))
         numpy.testing.assert_equal(adj1, adj_test)
+
+    def test_producto_m(selfs):
+        m1=numpy.array([[1,2,3],[4,5,6]])
+        m2=numpy.array([[7,8,9],[10,11,12]])
+        prod=mn.producto_m(m1,m2)
+        prod_test= numpy.mult(m1,m2)
+        numpy.testing.assert_equal(prod,prod_test)
+
+    def test_accion(self):
+        m1=numpy.array([[1,2],[3,4]])
+        v1=numpy.array
+        acc=mn.accion(m1,v1)
+        acc_test= numpy.dot(m1,v1)
+        numpy.testing.assert_equal(acc, acc_test)
+
+    def test_interno(self):
+        m1=numpy.array([[1, 2], [3, 4]])
+        m2=numpy.array([[5, 6],[7,8]])
+        inter=mn.interno(m1,m2)
+        inter_test=numpy.dot(m1,m2)
+        numpy.testing.assert_equal(inter, inter_test)
+
+    def test_norma(self):
+        v1=numpy.array([1,2,3])
+        norma=mn.norma(v1)
+        norma_test=numpy.linalg.norm(v1)
+        numpy.testing.assert_equal(norma, norma_test)
+
+    def test_distancia(self):
+        v1=numpy.array([1, 2, 3])
+        v2=numpy.array([4,5,6])
+        distancia=mn.distancia(v1,v2)
+        distancia_test=numpy.linalg.norm(v1 - v2)
+        numpy.testing.assert_equal(distancia, distancia_test)
+
+    def test_tensor(self):
+        m1=numpy.array([[3+2j,5-1j],[0,12]])
+        m2=numpy.array([[1,1+3j],[10+2j,6]])
+        tensor=mn.produc_tensor(m1,m2)
+        tensor_test=numpy.tensordot(m1,m2,axes=0)
+        numpy.testing.assert_equal(tensor, tensor_test)
+
+
+if __name__ == '__main__':
+    unittest.main()
